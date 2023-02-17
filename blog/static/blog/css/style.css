@@ -1,0 +1,15 @@
+body {
+    background: grey;
+}
+
+nav {
+    display: flex;
+    background: black;
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: italic;
+    padding: 10px 20px;
+}

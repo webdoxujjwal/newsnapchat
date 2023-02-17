@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'create' %}">Create new post</a>
+    <a href="{% url 'about' %}">About</a>
+
+</nav>
+
+<h3> Create new post</h3>
+
+<form  action="{% url 'create_process' %}" method="POST">
+  {% csrf_token %}
+  <p> title <input type="text" name="title"></p>
+  <p>content<textarea type="text" name="text"></textarea></p>
+  <input type="submit" value="create new post">
+</form>
+
+</body>
+</html>

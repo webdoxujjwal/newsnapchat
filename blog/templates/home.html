@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+</head>
+<body>
+
+<nav>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'create' %}">Create new post</a>
+    <a href="{% url 'about' %}">About</a>
+
+</nav>
+
+<img src="{% static 'blog/images/snapchat.png'%}" width="250" />
+
+{% for post in posts%}
+  <h2> {{post.title|upper }} </h2>
+        <a href ="{% url 'delete' id=post.id %}"></a>
+        <a href ="{% url 'update_form' id=post.id %}"> Update </a>
+<h5> Posted {{ post.dated|timesince }} ago</h5>
+  <p>{{ post.text|slice:250 }}......</p>
+<a href="{% url 'post' id=post.id %}">View More</a>
+{% endfor %}
+</body>
+</html>
